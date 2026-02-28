@@ -1,5 +1,4 @@
-function greet(name) {
-  return `Hello ${name}`;
+function greet2(name) {
+    return "hello ".concat(name);
 }
-
-console.log(greet("Utkarsh"));
+console.log(greet2("utk"));
