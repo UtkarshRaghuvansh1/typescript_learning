@@ -380,3 +380,53 @@ console.log(student.marks); // 95
 
 #### Note: 
 - In summary, private with an underscore is a safer pattern to fully encapsulate the data and enforce controlled access through getters and setters. If you need subclass access and are confident about validation, protected can be used, but it requires more caution.
+
+
+## Inheritance
+
+- A child class can inherit the methods and properties from parent class
+- Ts Only support 1 inderitance that is, A child class can only inherit one parent class at a time 
+
+Purpose:
+- It avoids code repeatition 
+- Changes made in the parent class automatically propagate to child classes, improving maintainability and reducing errors.
+
+Implementation : 
+- Use `extend` keyword to inherit the code
+```ts
+class User {
+    name: string;
+    email: string;
+}
+
+class Admin extends User {
+    role: string;
+
+    greet(){
+        console.log(`Hello I am ${this.name} - ${this.role}$, Email - ${this.email}`)
+    }
+}
+```
+
+- We can also modify methods and properties of parent class in child class 
+
+Example :
+
+```ts
+class User{
+    greet(){
+        console.log('Hello from User');
+    }
+}
+
+class Admin extends User {
+    greet(){
+        console.log('Hello from Admin!');
+    }
+}
+
+const admin = new Admin();
+admin.greet(); // Hello from Admin!
+
+```
+
