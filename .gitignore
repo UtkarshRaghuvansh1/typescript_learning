@@ -1,0 +1,81 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# Dependency directories
+.DS_Store
+
+# TypeScript build output
+dist/
+build/
+lib/
+out/
+/.parcel-cache/
+/.turbo/
+/.cache/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Logs
+logs
+*.log
+lerna-debug.log*
+
+# Runtime
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Instrumented libs
+lib-cov
+
+# Optional npm cache directory
+.npm
+
+# ESLint cache
+.eslintcache
+
+# dotenv environment files
+.env
+.env.*.local
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Archives and packages
+*.tgz
+*.zip
+
+# Yarn v2/v3
+.pnp.*
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Framework/build outputs
+.next/
+out/
+
+# VS Code test
+.vscode-test/
