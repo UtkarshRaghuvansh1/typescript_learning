@@ -1,5 +1,123 @@
 # OOPS
 
+## What is OOP?
+- It is a way of programming by which you structure and organize our code 
+
+
+## Abstraction 
+- Abstraction is hiding the implementation details from User and exposing only the essential features to User.
+- Abstraction can be implemented by using abstract(keyword), class and inerface and normal class
+
+```text
+                 ABSTRACTION
+                     │
+          Hide HOW something works
+                     │
+       Expose WHAT the user needs
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+   Interface    Abstract Class   Class API
+```
+### Through Abstract Keyword
+- Imagine different types of payments.
+- Every payment must have a pay() method, but the base Payment class doesn't specify exactly how payment happens.
+```ts
+abstract class Payment {
+    abstract pay(amount: number) : void;
+}
+
+//Payment through Credit card 
+class CreditCardPayment extend Payment{
+    pay(amount: number): void{
+        console.log(`Paid ${amount} using Credit Card Payment`);
+    }
+}
+
+/ Payment through UPI
+class UPIPayment extend Payment{
+    pay(amount: number): void{
+        console.log(`Paid ${amount} using Credit Card Payment`);
+    }
+}
+
+const payment = new CreditCardPayment();
+payment.pay(100);
+```
+```text
+              Payment
+         abstract class
+                 │
+         pay(amount)
+                 │
+      Implementation hidden
+                 │
+        ┌────────┴────────┐
+        ▼                 ▼
+ CreditCardPayment    UPIPayment
+        │                 │
+        ▼                 ▼
+ Credit Card logic     UPI logic
+```
+- The caller only knows payment.pay(), It does not worry about how that particular payment processed.
+
+### Thriugh interface and class
+```ts
+interface Payment{
+    pay(amount: number): void;
+}
+
+class CreditCardPayment implements Payment{
+    pay(amount: number): void{
+        console.log(`Paid ${amount} using Credit Card Payment`);
+    }
+}
+
+class UPIPayment implements Payment{
+    pay(amount: number): void{
+        console.log(`Paid ${amount} using Credit Card Payment`);
+    }
+}
+```
+```txt
+              Payment interface
+                     │
+               pay(amount)
+                     │
+              "WHAT to provide"
+                     │
+             ┌───────┴───────┐
+             ▼               ▼
+      CreditCardPayment   UpiPayment
+             │               │
+             ▼               ▼
+       HOW to pay          HOW to pay
+```
+- The user of these classes doesn't need to know the internal implementation.
+- Example:
+```ts
+function makepayment(payment: Payment): void{
+    payment.pay(100);
+}
+
+makePayment(new CreditCardPayment());
+
+makePayment(new UpiPayment());
+```
+- makePayment() only knows:
+```txt
+I received a Payment
+        ↓
+It has pay()
+        ↓
+Call pay()
+```
+
+#### Rules 
+- You cannot directly create an object of an abstract class.
+```ts
+const p = new Payment(); // ❌
+```
 ## Class and Objects
 ### Class
 - A class is a blueprint of object 
