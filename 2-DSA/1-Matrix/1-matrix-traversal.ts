@@ -72,22 +72,26 @@ function printDiagonalOfMatrix(amtrix : number [][]): void {
 }
 
 
+// 8. Secondary Diagonal 
 
+function printSecondaryDiagonal(matrix: number[][]): void {
+    for(let row = 0; row < matrix.length; row ++){
+        const col = (matrix.length - 1) - row;
+        console.log(matrix[row]![col]);
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 9. Boundary Cells 
+function printBoundaryCells(matrix: number[][]){
+    const rows = matrix.length;
+    const cols = matrix[0]!.length;
+    for(let row = 0; row < matrix.length; row ++){
+        for(let col = 0; col < matrix[row]!.length; col ++){
+            if(row === 0 || row === rows - 1 || col === 0 || col === cols - 1)
+                console.log(matrix[row]![col]!);
+        }
+    }
+}
 
 
 
@@ -129,3 +133,13 @@ console.log("###########################")
 
 console.log('Print Diagonal Of Matrix');
 printDiagonalOfMatrix(matrix);
+
+console.log("###########################")
+
+console.log('Print Secondary Diagonal Of Matrix');
+printSecondaryDiagonal(matrix);
+
+console.log("###########################")
+
+console.log('Print boundar values Of Matrix');
+printBoundaryCells(matrix);
